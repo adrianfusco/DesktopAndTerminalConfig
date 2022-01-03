@@ -37,6 +37,13 @@ gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 
 
-echo "export PS1='[$(date +%d-%m-%y\ %H:%M)] {\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h} (\w\[\033[0;33m\])\$(__git_ps1)$\[\033[0m\033[0;32m\] -> '" >> $HOME/.bashrc
+cat <<EOT >> $HOME/.bashrc
+export PS1="[\$(date '+%Y-%m-%d %H:%M:%S')] {\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h} (\w\[\033[0;33m\])\$(__git_ps1)$\[\033[0m\033[0;32m\] -> "
+alias l="ls -ltrah"
+alias c="xclip -selection clipboard"
+alias dmesg="dmesg --human --kernel --follow --ctime"
+alias random_password="dd if=/dev/urandom bs=1 count=12 2>/dev/null | base64 -w 0 | rev | cut -b 2- | rev"
+EOT
+
 source $HOME/.bashrc
 
