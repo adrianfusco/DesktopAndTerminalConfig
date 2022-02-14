@@ -1,9 +1,14 @@
 # DesktopAndTerminalConfig
 
-## gsettings.sh
+## config-scripts
 
-Bash script to configure PS1 and some desktop changes with `gsettings`.
+- `gsettings.sh`: Change some configurations in the default editor, default theme, click, list view, ...
+- `add_alias.sh`: Add some useful aliases. TODO: There are aliases with dependencies.
 
-## create\_zenity\_meeting\_warning\_crontab.sh 
+## simple-tools
 
-This script asks for a date and hour and creates a task into the crontab user file. After the task is completed for the crontab, it removes the lines corresponding to the task.
+- `create_zenity_meeting_warning_crontab.sh`: Setup crontab for meeting reminder. The cron entry is deleted once it's executed.
+
+## docker-images
+
+In progress.

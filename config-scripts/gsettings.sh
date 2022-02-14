@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ############ How it works: ################################################
 #	These are examples:
@@ -35,26 +35,4 @@ gsettings set org.gnome.nautilus.preferences click-policy single
 gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 # After it, open nautilus and execute Ctrl+L
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true
-
-
-cat <<EOT >> $HOME/.bashrc
-export PS1="[\$(date '+%Y-%m-%d %H:%M:%S')] {\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\]@\[\033[0;36m\]\h} (\w\[\033[0;33m\])\$(__git_ps1)$\[\033[0m\033[0;32m\] -> "
-
-##### Alias #####
-alias l="ls -ltrah"
-alias c="xclip -selection clipboard"
-alias dmesg="dmesg --human --kernel --follow --ctime"
-alias random_password="dd if=/dev/urandom bs=1 count=12 2>/dev/null | base64 -w 0 | rev | cut -b 2- | rev"
-
-##### Functions #####
-function read_yaml() {
-    python3 -c 'import yaml, sys; print(yaml.safe_load(sys.stdin))' < $1
-}
-
-function mem() {
-    ps -eo rss,pid,euser,args:100 --sort %mem | grep -v grep | grep -i $@ | awk '{printf $1/1024 "MB"; $1=""; print }'
-}
-EOT
-
-source $HOME/.bashrc
 
