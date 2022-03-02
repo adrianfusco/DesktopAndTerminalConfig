@@ -39,10 +39,10 @@ filetype detect
 let file_type = &ft
 
 if file_type == 'python'
-    if executable('python')
-        let executable_program = 'python'
-    elseif executable('python3')
+    if executable('python3')
         let executable_program = 'python3'
+    elseif executable('python')
+        let executable_program = 'python'
     endif
 elseif file_type == 'sh'
     let executable_program = 'bash'
