@@ -9,6 +9,7 @@ alias c="xclip -selection clipboard"
 alias dmesg="dmesg --human --kernel --follow --ctime"
 alias random_password="dd if=/dev/urandom bs=1 count=12 2>/dev/null | base64 -w 0 | rev | cut -b 2- | rev"
 alias testing_docker='echo Mounting: \`pwd\`; docker run -it -v \`pwd\`:/tmp/testing_virtualenv testing'
+alias dockerip="docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias git_list_commited_changes="paste <(git log -1 --stat --oneline --decorate=no --pretty=\"format:\" --name-status) <(git log -1 --stat --oneline --pretty=\"format:\") | column -s $'\t' -tne"
 
 ##### Functions #####
