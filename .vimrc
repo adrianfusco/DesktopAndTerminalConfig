@@ -29,6 +29,18 @@ let g:netrw_winsize = 25
 " autocmd VimEnter * :Vexplore
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+# Using persistent sudo. We'll be able to use undo and redo 
+# even if we exit the file we were modifying :)
+if has('persistent_undo')
+    " Save all undo files in a single location (less messy, more risky)...
+    set undodir=$HOME/.vim_undo_files
+    " Save a lot of back-history...
+    set undolevels=5000
+    " Actually switch on persistent undo
+    set undofile
+endif
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Execute the actual file opened with vim.
 " It checks if we are using one of the following:
 "   - python | python3
