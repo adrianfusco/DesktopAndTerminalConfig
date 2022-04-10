@@ -11,6 +11,7 @@ alias random_password="dd if=/dev/urandom bs=1 count=12 2>/dev/null | base64 -w 
 alias testing_docker='echo Mounting: \`pwd\`; docker run -it -v \`pwd\`:/tmp/testing_virtualenv testing'
 alias dockerip="docker inspect -f '{{range.NetworkSettings.Networks}}{{.IPAddress}}{{end}}'"
 alias git_list_commited_changes="paste <(git log -1 --stat --oneline --decorate=no --pretty=\"format:\" --name-status) <(git log -1 --stat --oneline --pretty=\"format:\") | column -s $'\t' -tne"
+alias random_ip="dd if=/dev/urandom bs=4 count=1 2>/dev/null | od -An -tu1 | sed -e 's/^ *//' -e 's/  */./g'"
 
 ##### Functions #####
 
