@@ -36,3 +36,5 @@ gsettings set org.gnome.nautilus.preferences default-folder-viewer 'list-view'
 # After it, open nautilus and execute Ctrl+L
 gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 
+# Shortcuts
+gsettings set org.gnome.desktop.lockdown disable-lock-screen true
