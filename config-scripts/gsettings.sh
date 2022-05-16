@@ -38,3 +38,5 @@ gsettings set org.gnome.nautilus.preferences always-use-location-entry true
 
 # Shortcuts
 gsettings set org.gnome.desktop.lockdown disable-lock-screen true
+# Cursor
+gsettings set  org.gnome.desktop.interface cursor-theme 'redglass'
