@@ -29,8 +29,8 @@ let g:netrw_winsize = 25
 " autocmd VimEnter * :Vexplore
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-# Using persistent sudo. We'll be able to use undo and redo 
-# even if we exit the file we were modifying :)
+" Using persistent sudo. We'll be able to use undo and redo 
+" even if we exit the file we were modifying :)
 if has('persistent_undo')
     " Save all undo files in a single location (less messy, more risky)...
     set undodir=$HOME/.vim_undo_files
