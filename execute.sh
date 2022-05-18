@@ -10,3 +10,5 @@ fi
 for script in $(ls -1 "$PROJECT_FOLDER/$SCRIPT_FOLDER"); do
     bash $script
 done
+
+cp .vimrc ~/.vimrc
