@@ -32,6 +32,7 @@ let g:netrw_winsize = 25
 " Using persistent sudo. We'll be able to use undo and redo 
 " even if we exit the file we were modifying :)
 if has('persistent_undo')
+    silent !mkdir ~/.vim_undo_files > /dev/null 2>&1
     " Save all undo files in a single location (less messy, more risky)...
     set undodir=$HOME/.vim_undo_files
     " Save a lot of back-history...
