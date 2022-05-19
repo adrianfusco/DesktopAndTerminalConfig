@@ -1,3 +1,25 @@
+" Let's setup Vundle and load the plugins we have installed
+" (.vimrc/bundle/pluginName)
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'preservim/nerdtree'
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Some config to NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 35
+
 " enable syntax highlighting
 syntax enable
 " show line numbers
@@ -20,13 +42,7 @@ set hlsearch
 set ignorecase
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
-set mouse=a
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 4
-let g:netrw_altv = 1
-let g:netrw_winsize = 25
-" autocmd VimEnter * :Vexplore
+set mouse=v
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Using persistent sudo. We'll be able to use undo and redo 
