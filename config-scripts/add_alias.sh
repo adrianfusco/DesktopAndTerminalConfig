@@ -19,7 +19,7 @@ alias random_ip="dd if=/dev/urandom bs=4 count=1 2>/dev/null | od -An -tu1 | sed
 ##### Functions #####
 
 function read_yaml() {
-    python3 -c 'import yaml, sys; print(yaml.safe_load(sys.stdin))' < $1
+    python3 -c 'import yaml, sys; print(yaml.safe_load(sys.stdin))' < \$1
 }
 
 function mem() {
