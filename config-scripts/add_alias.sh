@@ -26,12 +26,8 @@ function mem() {
     ps -eo rss,pid,euser,args:100 --sort %mem | grep -v grep | grep -i $@ | awk '{printf $1/1024 "MB"; $1=""; print }'
 }
 
-# For RHEL distro we do not have rgrep :)
-# So... search recursively and have the possibility of 
-# passing other arguments
-function r() {
-    fgrep -r "$1" . "${@:2}"
-}
+# ansible adhoc example
+ansible localhost -m community.libvirt.virt -a "command=list_vms"
 ########################################################################################################################
 EOT
 
