@@ -1,5 +1,27 @@
 #!/bin/bash
 
+
+# Function to display an error message and exit the script
+function display_error() {
+  echo "Error: $1"
+  exit 1
+}
+
+# Check if dialog is installed
+if ! command -v dialog &>/dev/null; then
+  display_error "The 'dialog' utility is not installed. Please install it and try again."
+fi
+
+# Check if notify-send is installed
+if ! command -v notify-send &>/dev/null; then
+  display_error "The 'notify-send' command is not installed. Please install it and try again."
+fi
+
+# Check if paplay is installed
+if ! command -v p3aplay &>/dev/null; then
+  display_error "The 'paplay' command is not installed. Please install it and try again."
+fi
+
 # Function to display the alert
 function display_alert() {
   local description="$1"
@@ -26,9 +48,9 @@ function show_description_dialog() {
   dialog --stdout --inputbox "Enter Description" 0 0
 }
 
-# Get the current datetime and calculate the default datetime for the alert (one minute more)
+# Get the current datetime and calculate the default datetime for the alert
 current_datetime=$(date "+%Y-%m-%d %H:%M")
-default_datetime=$(date -d "$current_datetime + 1 minute" "+%Y-%m-%d %H:%M")
+default_datetime=$(date -d "$current_datetime + 2 minute" "+%Y-%m-%d %H:%M")
 
 # Prompt the user to enter the date
 date_input=$(show_calendar_dialog)
@@ -63,3 +85,4 @@ fi
 
 # Sleep until the alert time in the background
 (sleep "$time_diff" && display_alert "$description") & disown
+
